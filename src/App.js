@@ -1,9 +1,11 @@
-import HomeScreen from "./components/HomeScreen";
+import ProductsScreen from "./screens/ProductsScreen.js";
 
 function App() {
   return (
     <>
-      <HomeScreen />
+      <main className="p-4">
+        <ProductsScreen />
+      </main>
     </>
   );
 }
