@@ -2,7 +2,12 @@ import React from "react";
 import { Accordion, Form } from "react-bootstrap";
 import "./SearchFilters.scss";
 
-export default function SearchFilters({ priceFilters, setPriceFilters }) {
+export default function SearchFilters({
+  priceFilters,
+  setPriceFilters,
+  ratingFilters,
+  setRatingFilters,
+}) {
   const handlePrice = (event) => {
     const selectedPrice = event.target.value;
     if (priceFilters.includes(selectedPrice)) {
@@ -11,6 +16,17 @@ export default function SearchFilters({ priceFilters, setPriceFilters }) {
       );
     } else {
       setPriceFilters([...priceFilters, selectedPrice]);
+    }
+  };
+
+  const handleRating = (event) => {
+    const selectedRating = parseInt(event.target.value);
+    if (ratingFilters.includes(selectedRating)) {
+      setRatingFilters(
+        ratingFilters.filter((filter) => filter !== selectedRating)
+      );
+    } else {
+      setRatingFilters([...ratingFilters, selectedRating]);
     }
   };
 
@@ -44,15 +60,19 @@ export default function SearchFilters({ priceFilters, setPriceFilters }) {
           <Accordion.Header>RATINGS</Accordion.Header>
           <Accordion.Body>
             <Form>
-              {["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"].map((name) => (
-                <div>
-                  <Form.Check
-                    type="checkbox"
-                    id={`${name}`}
-                    label={`${name}`}
-                  ></Form.Check>
-                </div>
-              ))}
+              {["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"].map(
+                (name, index) => (
+                  <div key={index}>
+                    <Form.Check
+                      type="checkbox"
+                      id={name}
+                      label={name}
+                      value={5 - index}
+                      onChange={handleRating}
+                    ></Form.Check>
+                  </div>
+                )
+              )}
             </Form>
           </Accordion.Body>
         </Accordion.Item>

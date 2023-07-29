@@ -5,13 +5,13 @@
       rgba(220, 189, 211, 0.3),
       rgba(220, 189, 211, 0.3)
     ),
-    url("../../public/assets/background.jpg") center/cover no-repeat fixed;
+    url("../../../public/assets/background.jpg") center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+
   .contents {
     width: 50%;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 2rem;
     input {
       width: 100%;
       padding: 0.8rem 1rem;
@@ -25,6 +25,14 @@
       color: rgb(169, 169, 169);
     }
     .trend-items {
+      background: white;
+      width: 100%;
+      padding: 0.5rem 1rem;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .contents {
+      width: 70%;
     }
   }
 }

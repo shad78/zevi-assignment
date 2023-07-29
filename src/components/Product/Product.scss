@@ -1,0 +1,31 @@
+.card-top {
+  position: relative;
+  cursor: pointer;
+  .heart-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+  }
+  .view-product {
+    background-color: rgba(216, 29, 216, 0.5);
+    text-align: center;
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    transform: translateY(50%);
+    padding: 0.3rem 0;
+    z-index: 1;
+  }
+}
+
+.price {
+  text-decoration: line-through;
+}
+
+.discount-price {
+  display: inline-block;
+  margin-left: 1rem;
+  color: blue;
+}

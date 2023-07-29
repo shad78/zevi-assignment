@@ -11,15 +11,15 @@ function generateProducts() {
       max: 2000,
       dec: 0,
     });
-    let image = faker.image.urlLoremFlickr({ category: "nature" });
-    let discountedPrice = 0.8 * price;
+    let image = faker.image.urlLoremFlickr({ category: "city" });
+    let discountedPrice = (0.8 * price).toFixed(1);
     let rating = Math.floor(Math.random() * 5) + 1;
     let numReviews = Math.floor(Math.random() * 50) + 1;
     let countInStock = Math.floor(Math.random() * 10) + 1;
     let priceRange =
-      price < 500
+      discountedPrice < 500
         ? "Under 500"
-        : price >= 500 && price < 1000
+        : discountedPrice >= 500 && discountedPrice < 1000
         ? "500 to 1000"
         : "1000 to 2000";
 
